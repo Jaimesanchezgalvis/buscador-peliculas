@@ -1,11 +1,11 @@
 export const RenderMovies = ({ movies }) => {
-  const hasMovies = movies.length > 0;
+  const hasMovies = movies?.length > 0;
 
   return (
     <>
       {hasMovies ? (
         <ul className="movies">
-          {movies.map((movie) => (
+          {movies?.map((movie) => (
             <li className="movie" key={movie.id}>
               <h3>{movie.title}</h3>
               <p>{movie.year}</p>
