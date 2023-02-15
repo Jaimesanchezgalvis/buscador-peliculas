@@ -1,11 +1,13 @@
 
+const API_KEY = "fd08388a"
+
 export const searchMovies = async ({ search }) => {
   if (search === "") return null;
 
   try {
     const response = await fetch(
       `http://www.omdbapi.com/?apikey=${
-        import.meta.env.VITE_API_KEY
+        API_KEY
       }&s=${search}`
     );
     const json = await response.json();

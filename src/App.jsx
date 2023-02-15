@@ -14,7 +14,7 @@ function App() {
   const debonceGetMovies = useCallback(
     debounce((search) => {
       console.log("search", search);
-      getMovies( {search} );
+      getMovies({ search });
     }, 300),
     [getMovies]
   );
@@ -31,7 +31,7 @@ function App() {
   const handleChange = (e) => {
     const newSearch = e.target.value;
     setQuery(newSearch);
-    debonceGetMovies( newSearch );
+    debonceGetMovies(newSearch);
   };
 
   return (
@@ -47,10 +47,13 @@ function App() {
             autoComplete="off"
             style={error ? { border: "1px solid red" } : null}
           />
-          <input type="checkbox" name="sort" onChange={handleSort} />
           <button type="submit" disabled={error ? true : false}>
             Buscar
           </button>
+          <section>
+            <input type="checkbox" name="sort" onChange={handleSort} />
+            <label htmlFor="sort">Ordenar por nombre</label>
+          </section>
         </form>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </header>
